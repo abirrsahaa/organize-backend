@@ -6,6 +6,8 @@ import { AppService } from './app.service';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
+import { ParserModule } from './parser/parser.module';
 
 @Module({
   imports: [
@@ -39,6 +41,11 @@ import { ConfigModule } from '@nestjs/config';
       autoLoadEntities: true, // this will automatically load all entities in the application
       synchronize: process.env.NODE_ENV !== 'production', // only synchronize in development mode that is --> automatically update the database schema (tables, columns, relationships) to match the structure defined in your entity classes. Effectively, it handles schema synchronization between your code and the database. 
     }),
+
+    AuthModule,
+    
+
+    ParserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
