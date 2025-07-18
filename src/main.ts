@@ -19,7 +19,7 @@ async function bootstrap() {
   app.enableCors();
 
   // look for the documentation of helmet for configuring it as for now i am passing it as default with nothing configured and disabling 
-  app.use(helmet());
+  app.use(helmet());  //this is responsible for security of the application
 
 
 
